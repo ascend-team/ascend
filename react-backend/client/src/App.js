@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import Home from './Home';
+import Dashboard from './Dashboard';
 import './App.css';
 
 class App extends Component {
@@ -13,10 +16,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Users</h1>
-        {this.state.users.map(user =>
-          <div key={user.id}>{user.username}</div>
-        )}
+        <Switch>
+          <Route exact path='/' component={Home}/>
+          <Route exact path='/dashboard' component={Dashboard}/>
+        </Switch>
       </div>
     );
   }
